@@ -12,12 +12,27 @@ print(tf.__version__)
 
 time.sleep (0.5)
 print('=======')
-print('IMDB NN')
+print('IMDB Classification AI')
+print('By Dirk & Niels')
 print('=======')
 time.sleep(1)
 
-dataset_dir = './aclImdb'
+if not os.path.isdir('aclImdb'):
+    print("IMDB Database not found, downloading form ai.stanford.edu...")
+    # Download dataset
+    url = "https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz"
+    dataset = tf.keras.utils.get_file("aclImdb_v1", url,untar=True, cache_dir='.', cache_subdir='')
+    dataset_dir = os.path.join(os.path.dirname(dataset), 'aclImdb')
+else:
+    print('Dataset already present! Using ./aclImdb')
+    dataset_dir = './aclImdb'
+
 train_dir = os.path.join(dataset_dir, 'train')
+
+if os.path.isdir(os.path.join(train_dir, 'unsup')):
+    print('Deleting unsup class reviews...')
+    shutil.rmtree(os.path.join(train_dir, 'unsup'))
+    print('Done!')
 
 print('Creating validation set...')
 batch_size = 32
