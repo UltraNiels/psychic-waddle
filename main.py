@@ -35,7 +35,7 @@ if os.path.isdir(os.path.join(train_dir, 'unsup')):
     shutil.rmtree(os.path.join(train_dir, 'unsup'))
     cprint('Done!', "green")
 
-cprint('Creating validation set...', "yellow")
+cprint('Creating training dataset...', "yellow")
 batch_size = 32
 seed = 42
 
@@ -46,7 +46,20 @@ raw_train_ds = tf.keras.utils.text_dataset_from_directory(
     subset='training', 
     seed=seed)
 
-for text_batch, label_batch in raw_train_ds.take(1):
-  for i in range(3):
-    print("Review", str(text_batch.numpy()[i])[:120])
-    print("Label", label_batch.numpy()[i])
+cprint("Label 0 is", raw_train_ds.class_names[0], 'yellow')
+cprint("Label 1 is", raw_train_ds.class_names[1]', yellow')
+
+time.sleep(0.5)
+
+cprint('Creating validation dataset...', "yellow")
+raw_val_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/train', 
+    batch_size=batch_size, 
+    validation_split=0.2, 
+    subset='validation', 
+    seed=seed)
+
+cprint('Creating test dataset...', "yellow")
+raw_test_ds = tf.keras.utils.text_dataset_from_directory(
+    'aclImdb/test', 
+    batch_size=batch_size)
