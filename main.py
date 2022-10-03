@@ -35,7 +35,7 @@ if os.path.isdir(os.path.join(train_dir, 'unsup')):
     shutil.rmtree(os.path.join(train_dir, 'unsup'))
     cprint('Done!', "green")
 
-print('Creating validation set...', "yellow")
+cprint('Creating validation set...', "yellow")
 batch_size = 32
 seed = 42
 
