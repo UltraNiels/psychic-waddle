@@ -47,4 +47,6 @@ raw_train_ds = tf.keras.utils.text_dataset_from_directory(
     seed=seed)
 
 for text_batch, label_batch in raw_train_ds.take(1):
-    print(text_batch.numpy()[1])
+  for i in range(3):
+    print("Review", text_batch.numpy()[i])
+    print("Label", label_batch.numpy()[i])
