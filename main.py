@@ -47,7 +47,7 @@ raw_train_ds = tf.keras.utils.text_dataset_from_directory(
     seed=seed)
 
 cprint("Label 0 is", raw_train_ds.class_names[0], 'yellow')
-cprint("Label 1 is", raw_train_ds.class_names[1]', yellow')
+cprint("Label 1 is", raw_train_ds.class_names[1], 'yellow')
 
 time.sleep(0.5)
 
