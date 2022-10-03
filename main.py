@@ -45,3 +45,6 @@ raw_train_ds = tf.keras.utils.text_dataset_from_directory(
     validation_split=0.2, 
     subset='training', 
     seed=seed)
+
+for text_batch, label_batch in raw_train_ds.take(1):
+    print(text_batch)
