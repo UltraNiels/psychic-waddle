@@ -78,3 +78,15 @@ vectorize_layer = layers.TextVectorization(
 
 # adapt vectorize layer 
 vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
+
+
+# tijddelijk
+def vectorize_text(text, label):
+  text = tf.expand_dims(text, -1)
+  return vectorize_layer(text), label
+
+text_batch, label_batch = next(iter(raw_train_ds))
+fr, fl = text_batch[0], label_batch[0]
+print("Review:\n    ", fr)
+print("Label:\n", raw_train_ds.class_names[fl])
+print("Vectorized:\n", vectorize_text(fr, fl))
