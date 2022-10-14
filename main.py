@@ -63,3 +63,18 @@ cprint('Creating test dataset...', "yellow")
 raw_test_ds = tf.keras.utils.text_dataset_from_directory(
     'aclImdb/test', 
     batch_size=batch_size)
+
+def cleanup(input_data):
+  stripped_html = tf.strings.regex_replace(tf.strings.lower(input_data), '<br />', ' ')
+  return tf.strings.regex_replace(stripped_html, '[%s]' % re.escape(string.punctuation),'')
+
+# begin model
+
+vectorize_layer = layers.TextVectorization(
+    standardize=cleanup,
+    max_tokens=10000,
+    output_mode='int',
+    output_sequence_length=250)
+
+# adapt vectorize layer 
+vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
