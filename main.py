@@ -87,6 +87,6 @@ def vectorize_text(text, label):
 
 text_batch, label_batch = next(iter(raw_train_ds))
 fr, fl = text_batch[0], label_batch[0]
-print("Review:\n    ", fr)
+print("Review:\n    ", cleanup(fr))
 print("Label:\n", raw_train_ds.class_names[fl])
 print("Vectorized:\n", vectorize_text(fr, fl))
