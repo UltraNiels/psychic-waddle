@@ -81,12 +81,15 @@ vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
 
 
 # tijddelijk
-def vectorize_text(text, label):
-  text = tf.expand_dims(text, -1)
-  return vectorize_layer(text), label
+# def vectorize_text(text, label):
+#   text = tf.expand_dims(text, -1)
+#   return vectorize_layer(text), label
 
-text_batch, label_batch = next(iter(raw_train_ds))
-fr, fl = text_batch[0], label_batch[0]
-print("Review:\n    ", cleanup(fr))
-print("Label:\n", raw_train_ds.class_names[fl])
-print("Vectorized:\n", vectorize_text(fr, fl))
+# text_batch, label_batch = next(iter(raw_train_ds))
+# fr, fl = text_batch[0], label_batch[0]
+# print("Review:\n    ", cleanup(fr))
+# print("Label:\n", raw_train_ds.class_names[fl])
+# print("Vectorized:\n", vectorize_text(fr, fl))
+
+for x in range (0, 10):
+    print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
