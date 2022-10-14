@@ -91,5 +91,5 @@ vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
 # print("Label:\n", raw_train_ds.class_names[fl])
 # print("Vectorized:\n", vectorize_text(fr, fl))
 
-for x in range (0, 10):
+for x in range (0, 50):
     print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
