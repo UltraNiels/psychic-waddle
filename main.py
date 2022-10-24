@@ -100,3 +100,19 @@ AUTOTUNE = tf.data.AUTOTUNE
 train_ds = raw_train_ds.map(vectorize).cache().prefetch(buffer_size=AUTOTUNE)
 val_ds = raw_val_ds.map(vectorize)().prefetch(buffer_size=AUTOTUNE)
 test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
+
+
+# MODEL!!!!!!!!!!!!
+
+embedding_dim = 16
+max_features = 10000
+sequence_length = 250
+
+model = tf.keras.Sequential([
+  layers.Embedding(max_features + 1, embedding_dim),
+  layers.Dropout(0.2),
+  layers.GlobalAveragePooling1D(),
+  layers.Dropout(0.2),
+  layers.Dense(1)])
+
+model.summary()
