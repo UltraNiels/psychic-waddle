@@ -79,11 +79,9 @@ vectorize_layer = layers.TextVectorization(
 # adapt vectorize layer 
 vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
 
-
-# tijddelijk
-# def vectorize_text(text, label):
-#   text = tf.expand_dims(text, -1)
-#   return vectorize_layer(text), label
+def vectorize(text, label):
+  text = tf.expand_dims(text, -1)
+  return vectorize_layer(text), label
 
 # text_batch, label_batch = next(iter(raw_train_ds))
 # fr, fl = text_batch[0], label_batch[0]
@@ -93,3 +91,7 @@ vectorize_layer.adapt(raw_train_ds.map(lambda x, y: x))
 
 for x in range (0, 50):
     print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
+
+train_ds = raw_train_ds.map(vectorize)
+val_ds = raw_val_ds.map(vectorize)
+test_ds = raw_test_ds.map(vectorize)
