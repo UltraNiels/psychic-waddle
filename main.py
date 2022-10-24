@@ -89,8 +89,8 @@ def vectorize(text, label):
 # print("Label:\n", raw_train_ds.class_names[fl])
 # print("Vectorized:\n", vectorize_text(fr, fl))
 
-for x in range (0, 50):
-    print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
+# for x in range (0, 50):
+#     print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
 
 train_ds = raw_train_ds.map(vectorize)
 val_ds = raw_val_ds.map(vectorize)
