@@ -92,6 +92,11 @@ def vectorize(text, label):
 # for x in range (0, 50):
 #     print(str(x) + " ---> ", vectorize_layer.get_vocabulary()[x])
 
-train_ds = raw_train_ds.map(vectorize)
 val_ds = raw_val_ds.map(vectorize)
 test_ds = raw_test_ds.map(vectorize)
+
+#AUTOTUNE
+AUTOTUNE = tf.data.AUTOTUNE
+train_ds = raw_train_ds.map(vectorize).cache().prefetch(buffer_size=AUTOTUNE)
+val_ds = raw_val_ds.map(vectorize)().prefetch(buffer_size=AUTOTUNE)
+test_ds = test_ds.cache().prefetch(buffer_size=AUTOTUNE)
