@@ -186,5 +186,5 @@ print(export_model.predict(examples))
 while 1:
     cprint("Prompt:", "blue")
     prompt = input()
-    print("Indelen....")
+    cprint("Indelen....", "yellow")
     print(export_model.predict([prompt]))
