@@ -119,7 +119,7 @@ model.compile(loss=losses.BinaryCrossentropy(from_logits=True),
               metrics=tf.metrics.BinaryAccuracy(threshold=0.0))
 
 
-epochs = 10
+epochs = 50
 history = model.fit(
     train_ds,
     validation_data=val_ds,
@@ -181,3 +181,4 @@ examples = [
 ]
 
 export_model.predict(examples)
+print()
