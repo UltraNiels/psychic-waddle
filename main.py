@@ -180,5 +180,5 @@ examples = [
   "The movie was terrible..."
 ]
 
-export_model.predict(examples)
-print()
+
+print(export_model.predict(examples))
