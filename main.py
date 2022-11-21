@@ -201,3 +201,14 @@ reviews = [
 ]
 print(export_model.predict(reviews))
 print(reviews)
+
+chinees = [
+  "Had running buffet the other day after a trade show. Food was good. Price was low. We ate faster than it could refill the buffet. Had enough to eat in the end though. Parking: There is a parking garage nearby!",
+  "Eaten once during winter. It was unpleasantly cold and the dishes were bland and heated up quickly. I didn't like the food. Not even when I once ate at people's houses who always took away here",
+  "It is very cosy here.  The meal is fine. The service very obliging despite it being very busy now.",
+  "I ordered food from them and when I got home there were black hairs in the food.  So no not recommended.",
+  "Just got 'Chinese' here for the first time. Large portions, prices not crazy expensive. Then again, I found the peanut sauce really tasteless and very greasy, almost had to throw away all the food just to avoid eating dry rice. If you are used to regular Chinese, I will therefore not recommend it."
+]
+
+print(export_model.predict(chinees))
+print(chinees)
