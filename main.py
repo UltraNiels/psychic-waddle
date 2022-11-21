@@ -175,14 +175,12 @@ loss, accuracy = export_model.evaluate(raw_test_ds)
 print(accuracy)
 
 
-cprint('Examples:', 'Blue')
+cprint('Examples:', 'blue')
 examples = [
   "The movie was great!",
   "The movie was okay.",
   "The movie was terrible..."
 ]
-
-
 print(export_model.predict(examples))
 
 # while 1:
