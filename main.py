@@ -174,6 +174,8 @@ export_model.compile(
 loss, accuracy = export_model.evaluate(raw_test_ds)
 print(accuracy)
 
+
+cprint('Examples:', 'Blue')
 examples = [
   "The movie was great!",
   "The movie was okay.",
@@ -183,8 +185,21 @@ examples = [
 
 print(export_model.predict(examples))
 
-while 1:
-    cprint("Prompt:", "blue")
-    prompt = input()
-    cprint("Indelen....", "yellow")
-    print(export_model.predict([prompt]))
+# while 1:
+#     cprint("Prompt:", "blue")
+#     prompt = input()
+#     cprint("Indelen....", "yellow")
+#     print(export_model.predict([prompt]))
+
+reviews = [
+  "The movie was great!",
+  "The movie was okay.",
+  "The movie was terrible...",
+  "I really enjoyed watching this,  I would definitely watch it again!",
+  "Worst one so far, not a good experience. The music was good though",
+  "In some bizarre way, this film just clicked for me...",
+  "Visually this film is amazing in every way, the amount of detail and wonderful CGI is just pure eye candy. I loved the 3D, although it wasn't quite necessary,but hey, 3D is the standard these days for films in cinema. Overall, I do not think in my own humble and honest opinion that this move deserves the hate from the critics. Most movie goers, people I know who have seen the film, liked it. It is not a masterpiece. Long way from that. It is not an Oscarwinning film by no means. It's just a really fun film to watch.",
+  "A film that utterly lacked any substance. There was promise at the beginning with a great opening introducing us to the anti-heroes which was awesome. And then.... Nothing? Stranded such a talented cast fighting comical looking goons and an anti-climax of a villian. The two stars are for Viola Davis and Margot Robbie who give their roles everything. Every other character is disposable and forgettable. And Jared Leto as the Joker? Lets say no more."
+]
+print(export_model.predict(reviews))
+print(reviews)
