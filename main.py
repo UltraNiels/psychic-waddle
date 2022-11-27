@@ -201,7 +201,10 @@ reviews = [
   "Is this movie terrible? Absolutely not. Is this movie great? Absolutely not. I always heard from people that they either HATED or LOVED this movie. And for me it was neither. The audience for this film is served with a classic action movie/comic book. The world is in danger! There must be a solution! Although there are bumps between the characters along the way, eventually, we'll solve the problem",
   "The interesting twist is *supposed* to be that instead of classic superheroes, we have bad guys. To that I say 'so what?'. The movie didn't really establish why I should care about much of what was going on on screen—it was all just classic popcorn movie action and sequences that were occasionally broken up by half-attempts at character development."
 ]
+
 print(export_model.predict(reviews))
+print([0.47739536])
+print([0.40126287])
 print(reviews)
 
 chinees = [
